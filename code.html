@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Brad Costello</title>
+    <title>REVERSE: A Coding Project by Brad Costello</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="img/BC_white_mark.svg" class="d-line-block align-text-top"
-                    alt="Brad Costello Logo" width="30" and height="29"> APP NAME</a>
+                    alt="Brad Costello Logo" width="30" and height="29"> REVERSE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://github.com/bearcaffeine/JSSiteTemplate">Git
+                        <a class="nav-link" target="_blank" href="REVERSEhttps://github.com/bearcaffeine/Reverse">Git
                             Repo</a>
                     </li>
                     <li class="nav-item">
@@ -55,21 +55,56 @@
 
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for REVERSE.</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            //Call Hello World
-                            function HelloWorld(){
-                                alert("hello world");
+                        //Get the string from the page
+                        function getValue(){
+                            
+                            document.getElementById("alert").classList.add("invisible");
+                            
+                            let userString = document.getElementById("userString").value;
+                            
+                            let rev = reverseString(userString);
+                            
+                            displayString(rev);
+                        }
+
+                        //Reverse the string
+                        function reverseString(userString){
+                            let revString = []; 
+
+                            //reverse a string using a for loop
+                            for (let index = userString.length-1; index >= 0; index--) {
+                                revString += userString[index];
                             }
+
+                            return revString;
+                        }
+
+                        //Display the message with reverse string
+                        function displayString(revString){
+                            //write to the page
+                            document.getElementById("message").innerHTML = `Your string reversed is: ${revString}`;
+                            
+                            //show the alert box
+                            document.getElementById("alert").classList.remove("invisible");
+
+                        }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
                     <p>The Code is structed in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                    <h5 class="text-primary">getValue()</h5>
+                    <p>This function controls the process of collecting the string value from the app page and passing that value to reverseString logic and displayString. We also force the HTML id Alert to be invisible.</p>
+                    
+                    <h5 class="text-primary">reverString()</h5>
+                    <p>This function uses a for loop to process through the string passed to the userString paramater. For each pass of the userString paramenter we add the letter to the revString array. Once the loop completes we pass the array back the getValue function.</p>
+                    
+                    <h5 class="text-primary">displayString()</h5>
+                    <p>This function now take s the array revString from the getValue function and passes the array to the app page at the "Message" element. We also remove the invisible class from the alert html block.</p>
                 </div>
             </div>
         </div>
